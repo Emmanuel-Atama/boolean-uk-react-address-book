@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactsList from "./components/ContactsList";
 import CreateContactForm from "./components/CreateContactForm";
 import "./styles.css";
