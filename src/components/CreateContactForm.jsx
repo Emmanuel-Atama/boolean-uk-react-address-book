@@ -49,30 +49,47 @@ setBlockCheckbox(event.target.checked)
         setPostCode(event.target.value);
       };
   const handleSubmit = (event) => {
-    event.prevent.deafult();
+    event.preventDefault();
 
-    const fetchOptions = {
+const addressToCreate = {
+  street,
+  city,
+  postCode,
+}
+
+    const fetchAddress = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(addressToCreate),
     }
-  
-    fetch("http://localhost:3030/addresses", fetchOptions)
-      .then(res => res.json())
+    fetch("http://localhost:3030/addresses", fetchAddress)
+      .then((res) => res.json())
       .then(newAddress => {
         console.log("addresses POST request: ", newAddress)
-  
-        const contactToCreate = {
-          firstName,
-          lastName,
-          blockContact,
-          addressId: newAddress.id,
-        }
       })
-  };
 
+      const contactToCreate = {
+        firstName,
+        lastName,
+        blockCheckbox,
+        addressId: newAddress.id,
+      }
+  
+      const fetchContact = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactToCreate),
+      }
+      fetch("http://localhost:3030/addresses", fetchContact)
+      .then(res => res.json())
+      .then(newContact => {
+        console.log("addresses POST request: ", newContact)
+  })
+  }
 
   return (
     <form
@@ -124,7 +141,7 @@ setBlockCheckbox(event.target.checked)
         <label htmlFor="block-checkbox">Block</label>
       </div>
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button onClick={handleSubmit} className="button blue" type="submit">
           Create
         </button>
       </div>

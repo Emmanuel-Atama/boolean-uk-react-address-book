@@ -14,10 +14,10 @@ export default function App() {
 
     fetch(url)
       .then((res) => res.json())
-      .then((newContact) => {
-        console.log("Inside Get Fetch: ", newContact);
+      .then((dataContact) => {
+        console.log("Inside Get Fetch: ", dataContact);
 
-        setContacts(...contacts, newContact);
+        setContacts(...contacts, dataContact);
       });
   }, []);
   
