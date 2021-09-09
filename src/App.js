@@ -17,7 +17,7 @@ export default function App() {
       .then((dataContact) => {
         console.log("Inside Get Fetch: ", dataContact);
 
-        setContacts(...contacts, dataContact);
+        setContacts(dataContact);
       });
   }, []);
   
@@ -29,7 +29,7 @@ export default function App() {
         hideForm={hideForm}
         setHideForm={setHideForm}
       />
-      <main>{!hideForm && <CreateContactForm />}</main>
+      <main>{!hideForm && <CreateContactForm contacts={contacts} setContacts={setContacts} />}</main>
     </>
   );
 }

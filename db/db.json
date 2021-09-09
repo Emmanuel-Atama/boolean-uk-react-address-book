@@ -13,6 +13,13 @@
       "lastName": "Queen",
       "blockContact": false,
       "addressId": 2
+    },
+    {
+      "firstName": "Emmanuel",
+      "lastName": "Atama",
+      "blockCheckbox": false,
+      "addressId": 3,
+      "id": 3
     }
   ],
   "addresses": [
@@ -31,20 +38,8 @@
     {
       "street": "Tierney",
       "city": "Tipton",
-      "postCode": "DY45TT",
+      "postCode": "DY47DN",
       "id": 3
-    },
-    {
-      "street": "Tierney",
-      "city": "Tipton",
-      "postCode": "DY45TT",
-      "id": 4
-    },
-    {
-      "street": "Tierney",
-      "city": "Tipton",
-      "postCode": "DY45TT",
-      "id": 5
     }
   ]
 }

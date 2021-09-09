@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function CreateContactForm(props) {
-  // [TODO] Write form handlers here and POST requests here...
 
+const {contacts, setContacts} = props
 
  // Contact State
  const [firstName, setFirstName] = useState("")
@@ -15,11 +15,14 @@ function CreateContactForm(props) {
  const [postCode, setPostCode] = useState("")
 
  console.log("Inside State: ", {firstName, lastName, blockCheckbox, street, city, postCode})
-  const handleFirstName = (event) => {
+
+  // [TODO] Write form handlers here and POST requests here...
+ const handleFirstName = (event) => {
     // console.log("Inside handleFirstName: ", event.target.value)
 
     setFirstName(event.target.value);
   };
+
 
   const handleLastName = (event) => {
   // console.log("Inside handleLastName: ", event.target.value)
@@ -68,27 +71,36 @@ const addressToCreate = {
       .then((res) => res.json())
       .then(newAddress => {
         console.log("addresses POST request: ", newAddress)
+
+        const contactToCreate = {
+          firstName,
+          lastName,
+          blockCheckbox,
+          addressId: newAddress.id,
+        }
+    
+        const fetchContact = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactToCreate),
+        }
+        fetch("http://localhost:3030/contacts", fetchContact)
+        .then(res => res.json())
+        .then(newContact => {
+          console.log("addresses POST request: ", newContact)
+          const contactToAdd = {
+            ...newContact,
+            address: newAddress,
+          }
+
+          console.log("contact to add: ", contactToAdd)
+
+          setContacts([...contacts, contactToAdd])
+    })
       })
 
-      const contactToCreate = {
-        firstName,
-        lastName,
-        blockCheckbox,
-        addressId: newAddress.id,
-      }
-  
-      const fetchContact = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(contactToCreate),
-      }
-      fetch("http://localhost:3030/addresses", fetchContact)
-      .then(res => res.json())
-      .then(newContact => {
-        console.log("addresses POST request: ", newContact)
-  })
   }
 
   return (
