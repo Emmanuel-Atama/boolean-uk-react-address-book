@@ -123,7 +123,7 @@ const handleCity = (event) => {
       </div>
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Edit
+          Update
         </button>
       </div>
      
