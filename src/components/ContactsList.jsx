@@ -6,7 +6,7 @@ function ContactsList(props) {
       <header>
         <h2>Contacts</h2>
         <button
-          onClick={() => setHideForm(!hideForm)}
+          onClick={() => {setEditContactForm(!editContactForm), setHideForm(!hideForm)}}
           className="button new-contact-btn"
         >
           {hideForm ? "Create" : "Cancel"}
@@ -15,15 +15,15 @@ function ContactsList(props) {
       <ul>
         {contacts.map((contact, index) => {
           const { firstName, lastName, address } = contact;
-
+console.log("INside Contact: ", contact)
           return (
             <li key={index}>
               <h3>
                 {firstName} {lastName}
               </h3>
-              <p>
-                {address.street}, {address.postCode}
-              </p>
+                {/* <p>
+                  {address.street}, {address.postCode}
+                </p> */}
               <button
           onClick={() => {setEditContactForm(!editContactForm), setContactEdit(contact)}}
           className="button new-contact-btn"
