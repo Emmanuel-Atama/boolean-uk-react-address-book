@@ -3,14 +3,17 @@
     {
       "id": 1,
       "firstName": "Boris",
-      "lastName": "Johnson",
+      "lastName": "Joy",
       "blockContact": true,
-      "addressId": 1
+      "addressId": 1,
+      "street": "10 Downing Street",
+      "city": "London",
+      "postCode": "SW1A 2AB"
     },
     {
       "id": 2,
       "firstName": "The",
-      "lastName": "Queen",
+      "lastName": "Queen of England",
       "blockContact": false,
       "addressId": 2
     },

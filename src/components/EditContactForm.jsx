@@ -77,7 +77,8 @@ const handleCity = (event) => {
             },
             body: JSON.stringify(addressToUpdate),
           }
-          fetch("http://localhost:3030/addresses", fetchAddressToUpdate)
+          const url = "http://localhost:3030/addresses"
+          fetch(url, fetchAddressToUpdate)
             .then((res) => res.json())
             .then(updatedAddress => {
               console.log("addresses POST request: ", updatedAddress)
@@ -95,7 +96,7 @@ const handleCity = (event) => {
                 },
                 body: JSON.stringify(contactToUpdate)
               };
-              const url = "http://localhost:3030/contacts/1"
+              const url = `http://localhost:3030/contacts/${contactEdit.id}`
               fetch(url, fetchContactToUpdate)
                 .then((res) => res.json())
                 .then((updatedContact) => {
