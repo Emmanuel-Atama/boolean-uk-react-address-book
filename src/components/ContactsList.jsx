@@ -25,11 +25,12 @@ function ContactsList(props) {
                 {address.street}, {address.postCode}
               </p>
               <button
-          onClick={() => {setEditContactForm(!editContactForm)}, setContactEdit(contact)}
+          onClick={() => {setEditContactForm(!editContactForm), setContactEdit(contact)}}
           className="button new-contact-btn"
         >
-          {hideForm ? "Edit" : "Cancel"}
+          {editContactForm ? "Edit" : "Cancel"}
         </button>
+        
             </li>
           );
         })}

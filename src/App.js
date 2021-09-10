@@ -35,8 +35,8 @@ export default function App() {
         setEditContactForm={setEditContactForm}
         setContactEdit={setContactEdit}
       />
-      <main>{!hideForm && <CreateContactForm contacts={contacts} setContacts={setContacts} />}
-            {!editContactForm && <EditContactForm setContacts={setContacts} contactEdit={contactEdit}/>}
+      <main>{!hideForm && (<CreateContactForm contacts={contacts} setContacts={setContacts} />)}
+            {!editContactForm && (<EditContactForm setContacts={setContacts} contactEdit={contactEdit}/>)}
       </main>
     </>
   );

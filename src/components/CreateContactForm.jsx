@@ -114,6 +114,7 @@ const addressToCreate = {
         id="first-name-input"
         name="first-name-input"
         type="text"
+        value={firstName}
       />
       <label htmlFor="last-name-input">Last Name:</label>
       <input
@@ -121,6 +122,7 @@ const addressToCreate = {
         id="last-name-input"
         name="last-name-input"
         type="text"
+        value={lastName}
       />
       <label htmlFor="street-input">Street:</label>
       <input
@@ -128,6 +130,7 @@ const addressToCreate = {
         id="street-input"
         name="street-input"
         type="text"
+        value={street}
       />
       <label htmlFor="city-input">City:</label>
       <input
@@ -135,6 +138,7 @@ const addressToCreate = {
         id="city-input"
         name="city-input"
         type="text"
+        value={city}
       />
       <label htmlFor="post-code-input">Post Code:</label>
       <input
@@ -142,6 +146,7 @@ const addressToCreate = {
         id="post-code-input"
         name="post-code-input"
         type="text"
+        value={postCode}
       />
       <div className="checkbox-section">
         <input
@@ -149,6 +154,7 @@ const addressToCreate = {
           id="block-checkbox"
           name="block-checkbox"
           type="checkbox"
+          checked={blockCheckbox}
         />
         <label htmlFor="block-checkbox">Block</label>
       </div>

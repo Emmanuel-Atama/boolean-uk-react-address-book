@@ -20,9 +20,9 @@ console.log("Inside contactEdit: ", contactEdit)
      setFirstName(contactEdit.firstName)
      setLastName(contactEdit.lastName)
      setBlockCheckbox(contactEdit.blockCheckbox)
-     setStreet(contactEdit.street)
-     setCity(contactEdit.city)
-     setPostCode(contactEdit.postCode)
+     setStreet(contactEdit.address.street)
+     setCity(contactEdit.address.city)
+     setPostCode(contactEdit.address.postCode)
    }
  }, [contactEdit])
 
@@ -70,7 +70,7 @@ const handleCity = (event) => {
 <form
     onSubmit ={handleSubmit} className="form-stack light-shadow center contact-form"
     >
-      <h1>Create Contact</h1>
+      <h1>Edit Contact</h1>
       <label htmlFor="first-name-input">First Name:</label>
       <input
         id="first-name-input"
@@ -123,7 +123,7 @@ const handleCity = (event) => {
       </div>
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
      
