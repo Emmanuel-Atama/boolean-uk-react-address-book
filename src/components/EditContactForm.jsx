@@ -5,12 +5,9 @@ export default function EditContactForm(props) {
 const {contactEdit, contacts, setContacts} = props
 console.log("Inside contactEdit: ", contactEdit)
 
-    // Contact State
  const [firstName, setFirstName] = useState("")
  const [lastName, setLastName] = useState("")
  const [blockCheckbox, setBlockCheckbox] = useState(false);
-
- // Address State
  const [street, setStreet] = useState("")
  const [city, setCity] = useState("")
  const [postCode, setPostCode] = useState("")
@@ -26,43 +23,20 @@ console.log("Inside contactEdit: ", contactEdit)
    }
  }, [contactEdit])
 
- const handleFirstName = (event) => {
-  // console.log("Inside handleFirstName: ", event.target.value)
+ const handleFirstName = (event) => {setFirstName(event.target.value);};
 
-  setFirstName(event.target.value);
-};
+const handleLastName = (event) => {setLastName(event.target.value);};
 
+const handleBlockCheckbox = (event) => {setBlockCheckbox(event.target.checked)}
 
-const handleLastName = (event) => {
-// console.log("Inside handleLastName: ", event.target.value)
+const handleStreet = (event) => {setStreet(event.target.value);};
 
-  setLastName(event.target.value);
-};
+const handleCity = (event) => {setCity(event.target.value);};
 
-const handleBlockCheckbox = (event) => {
-// console.log("Inside handleBlockCheckbox: ", event.target.checked)
+const handlePostCode = (event) => {setPostCode(event.target.value);};
 
-setBlockCheckbox(event.target.checked)
-}
-
-const handleStreet = (event) => {
-// console.log("Inside handleStreet: ", event.target.value)
-
-  setStreet(event.target.value);
-};
-const handleCity = (event) => {
-  // console.log("Inside handleCity: ", event.target.value)
-
-    setCity(event.target.value);
-  };
-  const handlePostCode = (event) => {
-    // console.log("Inside handlePostCode: ", event.target.value)
-  
-      setPostCode(event.target.value);
-    };
-
- const handleSubmit = (event) => {
-   event.preventDefault()
+const handleSubmit = (event) => {
+event.preventDefault()
 
       const addressToUpdate = {
         street,
@@ -168,7 +142,7 @@ const handleCity = (event) => {
       </div>
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Update
+          Update Details
         </button>
       </div>
      

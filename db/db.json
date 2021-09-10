@@ -1,14 +1,9 @@
 {
   "contacts": [
     {
-      "id": 1,
       "firstName": "Boris",
-      "lastName": "Joy",
-      "blockContact": true,
-      "addressId": 1,
-      "street": "10 Downing Street",
-      "city": "London",
-      "postCode": "SW1A 2AB"
+      "lastName": "Johnson",
+      "id": 1
     },
     {
       "id": 2,
