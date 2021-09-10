@@ -145,7 +145,7 @@ const addressToCreate = {
       />
       <div className="checkbox-section">
         <input
-          onChange={props.handleBlockCheckbox}
+          onChange={handleBlockCheckbox}
           id="block-checkbox"
           name="block-checkbox"
           type="checkbox"
