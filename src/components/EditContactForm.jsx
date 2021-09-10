@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export default function EditContactForm(props) {
 
-const {contactEdit} = props
+const {contactEdit, contacts, setContacts} = props
 console.log("Inside contactEdit: ", contactEdit)
 
     // Contact State
@@ -63,6 +63,50 @@ const handleCity = (event) => {
 
  const handleSubmit = (event) => {
    event.preventDefault()
+
+      const addressToUpdate = {
+        street,
+        city,
+        postCode,
+      }
+      
+          const fetchAddressToUpdate= {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(addressToUpdate),
+          }
+          fetch("http://localhost:3030/addresses", fetchAddressToUpdate)
+            .then((res) => res.json())
+            .then(updatedAddress => {
+              console.log("addresses POST request: ", updatedAddress)
+
+              const contactToUpdate = {
+                firstName,
+                lastName,
+                blockCheckbox,
+                addressId: updatedAddress.id,
+              };
+              const fetchContactToUpdate = {
+                method: "PATCH",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(contactToUpdate)
+              };
+              const url = "http://localhost:3030/contacts/1"
+              fetch(url, fetchContactToUpdate)
+                .then((res) => res.json())
+                .then((updatedContact) => {
+                  console.log("Inside PATCH Fetch: ", updatedContact)
+            
+                  const updatingContact = {
+                    ...updatedContact
+                  }
+                  setContacts([...contacts, updatingContact])
+            })
+            });
  }    
 
  return(
