@@ -2,9 +2,10 @@
   "contacts": [
     {
       "firstName": "Boris",
-      "lastName": "Johnson Jnr",
+      "lastName": "Johnson",
       "id": 1,
-      "addressId": 1
+      "addressId": 1,
+      "blockCheckbox": true
     },
     {
       "id": 2,
@@ -46,7 +47,7 @@
     {
       "id": 1,
       "street": "10 Downing Street",
-      "city": "Londoner",
+      "city": "London",
       "postCode": "SW1A 2AB"
     },
     {

@@ -14,24 +14,23 @@ function ContactsList(props) {
       </header>
       <ul>
         {contacts.map((contact, index) => {
-          const { firstName, lastName, address } = contact;
-console.log("INside Contact: ", contact)
+          const { firstName, lastName, street, postCode } = contact;
+console.log("Inside Contact: ", contact)
           return (
             <li key={index}>
               <h3>
                 {firstName} {lastName}
               </h3>
-                {/* <p>
-                  {address.street}, {address.postCode}
-                </p> */}
+                <p>
+                  {street}, {postCode}
+                </p>
               <button
           onClick={() => {setEditContactForm(!editContactForm), setContactEdit(contact)}}
           className="button new-contact-btn"
         >
           {editContactForm ? "Edit" : "Cancel"}
         </button>
-        
-            </li>
+        </li>
           );
         })}
       </ul>
